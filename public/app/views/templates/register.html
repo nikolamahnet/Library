@@ -1,0 +1,45 @@
+<div class="row">
+
+    <div id="login-form" class="col-md-4">
+
+        <h3>Register form:</h3>
+
+        <form novalidate name="registerForm" ng-submit="register(register.$valid)">
+
+            <fieldset ng-class="{ 'has-error' : registerForm.username.$invalid && !registerForm.username.$pristine}" class="form-group">
+
+                <label>Username</label>
+                <input name="username" class="form-control" type="text" ng-model="credentials.username" placeholder="Username" required ng-minlength="4"/>
+                <p ng-show="registerForm.username.$error.minlength" class="help-block">Username is too short.</p>
+
+            </fieldset>
+            <fieldset class="form-group">
+                <label>Password:</label>
+                <input class="form-control" type="password" ng-model="credentials.password" placeholder="Password" required/>
+                <p ng-show="credentials.password!=credentials.password2 && !registerForm.password2.$pristine">Passwords don't match</p>
+            </fieldset>
+            <fieldset class="form-group">
+                <label>Password:</label>
+                <input name="password2" class="form-control" type="password" ng-model="credentials.password2" placeholder="Repeat password" required/>
+            </fieldset>
+            <fieldset class="form-group">
+                <label>Name:</label>
+                <input name="name" class="form-control" type="text" ng-model="credentials.name" placeholder="Name"/>
+            </fieldset>
+            <fieldset ng-class="{ 'has-error' : registerForm.email.$invalid && !registerForm.email.$pristine }" class="form-group">
+                <label>Name:</label>
+                <input name="email" class="form-control" type="email" ng-model="credentials.email" placeholder="E-mail" required/>
+                <p ng-show="registerForm.email.$invalid && !registerForm.email.$pristine" class="help-block">Enter a valid email.</p>
+            </fieldset>
+            <input type="submit" class="btn btn-success" ng-disabled="registerForm.$invalid" value="Register!"/>
+        </form>
+        <br/>
+        <a href="#/login">Back to login form</a>
+
+
+
+
+
+    </div>
+
+</div>
